@@ -1,0 +1,188 @@
+{% extends "layout/root.twig" %}
+
+{% block title %}{{ title }}{% endblock title %}
+{% block root %}
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- Top Bar Start -->
+        <div class="topbar">
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <a href="/" class="logo">
+                    <span>
+                        <img src="{{ static }}/images/logo.png" alt="">
+                    </span>
+                    <i>
+                        <img src="{{ static }}/images/logo_sm.png" alt="">
+                    </i>
+                </a>
+            </div>
+
+            <nav class="navbar-custom">
+                <ul class="list-unstyled topbar-right-menu float-right mb-0">
+                    <li class="dropdown notification-list">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="false" aria-expanded="false">
+                            <img src="{{ static }}/images/avatar.png" alt="user" class="rounded-circle"> <span class="ml-1">{{ user.username }} <i class="mdi mdi-chevron-down"></i> </span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h6 class="text-overflow m-0">Welcome !</h6>
+                            </div>
+
+                            <!-- item-->
+                            <a href="/profile/me" class="dropdown-item notify-item">
+                                <i class="ti-user"></i> <span>My Account</span>
+                            </a>
+
+                            <!-- item-->
+                            <a href="/auth/logout" class="dropdown-item notify-item">
+                                <i class="ti-power-off"></i> <span>Logout</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left waves-light waves-effect">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Top Bar End -->
+
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <div class="user-details">
+                <div class="pull-left">
+                    <img src="{{ static }}/images/avatar.png" alt="" class="thumb-sm rounded-circle">
+                </div>
+                <div class="user-info">
+                    <a href="#">{{ user.name }}</a>
+                    <p class="text-muted m-0">{{ user.role }}</p>
+                </div>
+            </div>
+
+            <!--- Sidemenu -->
+            <div id="sidebar-menu">
+                <!-- Left Menu Start -->
+                <ul class="metismenu" id="side-menu">
+                    <li class="menu-title">Navigation</li>
+
+                    <li><a href="/"><i class="ti-dashboard"></i><span> Dashboard </span></a></li>
+
+                    {% if user.roleid in ['02', '06'] %}
+                        <li>
+                            <a href="javascript: void(0);">
+                                <i class="ti-stats-up"></i>
+                                <span> Reports </span> 
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                {% if user.roleid == '02' %}
+                                    <li><a href="/dashboard/management">Management Reporting</a></li>
+                                    <li><a href="/dashboard/admissions">Admissions Reporting</a></li>
+                                    <li><a href="/dashboard/registration">Registration Reporting</a></li>
+                                    <li><a href="/dashboard/examination">Examination Reporting</a></li>
+                                {% endif %}
+
+                                {% if user.roleid == '06' %}
+                                    <li><a href="javascript:void(0);">Financial Reporting</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {% if user.roleid == '02' %}
+                        <li>
+                            <a href="javascript:void(0);">
+                                <i class="ti-settings"></i>
+                                <span> Setup </span> 
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="/setup/course/all">Courses</a></li>
+                                <li><a href="/setup/pcrelations">PC Relations</a></li>
+                                <li><a href="/setup/users/manage">Users</a></li>
+                                {# <li><a href="#">Programmes</a></li> #}
+                                {# <li><a href="#">Students</a></li> #}
+                                {# <li><a href="#">Colleges</a></li> #}
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {% if user.roleid in ['02', '04'] %}
+                        <li>
+                            <a href="javascript:void(0);">
+                                <i class="ti-files"></i>
+                                <span> Tasks </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="/task/examination">Examination</a></li>
+                                <li><a href="/sp/">Score Processing</a></li>
+                                <li><a href="/sp/transcript">Unofficial Transcript</a></li>
+                                <li><a href="/sp/detailed_sor">Detailed SoR</a></li>
+                                {% if user.roleid == '02' %}
+                                    <li><a href="/task/studissues">Student Issues</a></li>
+                                    <li><a href="/task/backlog-register">Backlog Registration</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
+                    {% endif %}
+
+                    {% if user.roleid == '06' %}
+                        <li>
+                            <a href="javascript:void(0);">
+                                <i class="ti-money"></i>
+                                <span> Financials </span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <ul class="nav-second-level" aria-expanded="false">
+                                <li><a href="/finance/setup">Setup</a></li>
+                                <li><a href="javascript:void(0);">Get Bank Data</a></li>
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+            <!-- Sidebar -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- Left Sidebar End -->
+
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <div class="container-fluid">
+                    {% block content %}{% endblock %}
+                </div> <!-- container -->
+
+
+                <div class="footer">
+                    <div class="pull-right hide-phone">
+                        Institute of Education <strong class="text-custom">CASIS</strong>.
+                    </div>
+                    <div>
+                        <strong>University of Cape Coast</strong> - Copyright &copy; 2018 - {{ "now"|date('Y') }}
+                    </div>
+                </div>
+            </div> <!-- content -->
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Right content here -->
+        <!-- ============================================================== -->
+
+    </div>
+    <!-- END wrapper -->
+{% endblock root %}

@@ -1,0 +1,115 @@
+{% extends "layout/layout.twig" %}
+{% import "macros/forms.twig" as forms %}
+
+{# {% set tcredits = 0 %} #}
+
+{% block content %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="header-title m-t-0 m-b-20">{{ title }}</h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card-box">
+                <form action="" method="post" name="myForm">
+                    {{ forms.csrf(csrf_token) }}
+                    {{ forms.input('regno', 'regno', null, 'regno', "Registration Number", regno, {onchange: "myForm.submit()"}) }}
+                </form>                
+            </div>
+
+            {% if student %}
+                <div class="card-box">
+                    <table>
+                        <tr>
+                            <th style="text-align: left;">NAME </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ student.stud_name }} </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">INDEX NO. </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ student.regno }} </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">PROGRAMME </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ student.prog_name }} </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">MAJOR </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ student.major_name }} </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">LEVEL </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ student.level }} </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">CGPA </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ cgpa(student.regno, sessions[0].session)['gpa']|round(2) }} </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">COLLEGE </th>
+                            <th>&nbsp;&nbsp;</th>
+                            <td> {{ student.college }} </td>
+                        </tr>
+                    </table>
+
+                    <hr>
+
+                    {% for session in sessions|sort %}
+                        <table class="table table-sm table-striped table-bordered">
+                            <thead>
+                                <tr><th colspan="5">{{ session.session|acasession }}</th></tr>
+                                <tr>
+                                    <th>CODE</th>
+                                    <th>TITLE</th>
+                                    <th class="text-center">CR</th>
+                                    <th class="text-center">GR</th>
+                                    <th class="text-center">GP</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in results(student.regno, session.session) %}
+                                    {% if item.resit == 1 %}
+                                        <tr class="text-danger text-monospace font-weight-bold">
+                                            <td>{{ item.code }}</td>
+                                            <td>{{ item.title }}&nbsp;*</td>
+                                            <td class="text-center">{{ item.cr }}</td>
+                                            <td class="text-center">{{ item.gd }}</td>
+                                            <td class="text-center">{{ item.gp }}</td>
+                                        </tr>
+                                    {% else %}
+                                        <tr>
+                                            <td>{{ item.code }}</td>
+                                            <td>{{ item.title }}</td>
+                                            <td class="text-center">{{ item.cr }}</td>
+                                            <td class="text-center">{{ item.gd }}</td>
+                                            <td class="text-center">{{ item.gp }}</td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="2" style="text-align: left;">
+                                        GPA = {{ gpa(student.regno, session.session)['gpa'] }}, 
+                                        CGPA = {{ cgpa(student.regno, session.session)['gpa'] }}
+                                    </th>
+                                    <th class="text-center">{{ gpa(student.regno, session.session)['tcr'] }}</th>
+                                    <th>&nbsp;</th>
+                                    <th class="text-center">{{ gpa(student.regno, session.session)['tgp'] }}</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

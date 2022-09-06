@@ -1,0 +1,50 @@
+server {
+    error_log /var/log/nginx/staff.error_log;
+    access_log /var/log/nginx/staff.access_log;
+    server_name https://ioetutors.ucc.edu.gh;
+    root C:\xampp\htdocs\hrms\app/staffportal;
+    index index.php index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;
+    }
+
+    location ~ \.php {
+        try_files $uri =404;
+        fastcgi_index index.php;
+        fastcgi_pass 127.0.0.1:9000;
+        
+        include fastcgi_params;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        fastcgi_param PATH_TRANSLATED $document_root$fastcgi_path_info;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_read_timeout 1000;
+        fastcgi_intercept_errors on;
+    }
+
+    server_tokens off;
+
+    add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload; always;";
+    add_header X-Frame-Options DENY;
+    add_header X-Content-Type-Options nosniff;
+    add_header X-XSS-Protection 1;
+    # add_header Content-Security-Policy "default-src 'none'; connect-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src *; img-src 'self' https://application.ucc.edu.gh; form-action 'self'; frame-ancestors 'none'; base-uri 'none';";
+
+    listen [::]:443 ssl;
+    listen 443 ssl;
+    ssl_certificate /etc/nginx/ssl/nginx_ssl_bundle.crt;
+    ssl_certificate_key /etc/nginx/ssl/star.ucc.edu.gh.key;
+}
+
+server {
+    if ($host = https://ioetutors.ucc.edu.gh) {
+        return 301 https://$host$request_uri;
+    }
+
+    listen 80;
+    listen [::]:80;
+
+    server_name https://ioetutors.ucc.edu.gh;
+    return 404;
+}

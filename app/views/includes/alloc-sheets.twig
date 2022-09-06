@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ static }}/images/favicon.ico">
+    
+    <style type="text/css">
+        .table {
+            border-collapse:collapse;
+            border: 1px solid;
+        }
+
+        .table td, .table th {
+            border-collapse:collapse;
+            border: 1.5px solid;
+            padding: 3px;
+        }
+
+        .head-page {
+            width: 90vw;
+            height: 90vh;
+            margin: 0 auto;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    {% set college = centre_name|split("-") %}
+    <section class="head-page">
+        <img src="{{ static }}/images/ucc_logo.png" width="100" height="100" onClick="window.print()" />
+        <br>
+
+        <div style="text-align: center;">
+            <h1 style="margin: 0;">UNIVERSITY OF CAPE COAST</h1>
+            <h3 style="margin: 0;">INSTITUTE OF EDUCATION</h3>
+            <br>
+
+            <h3 style="margin: 0;">COLLEGES OF EDUCATION</h3>
+            <h3 style="margin: 0;">
+                {% if resit == 1 %} 
+                    SUPPLEMENTARY (RE-SIT) EXAMINATION ({{ album.session|acayear|upper }} ACADEMIC YEAR)  - ({{ album.session|acasemester|upper }})
+                {% else %}
+                    END OF {{ album.session|acasession|upper }} EXAMINATION  
+                {% endif %}
+            </h3>
+            <br>
+            <h3 style="margin: 0;">LEVEL: {{ album.level }}</h3> <br>
+            <h2 style="margin: 0;">{{ college[0] }}</h2>
+            <h3 style="margin: 0;">{{ album.code ~ ": " ~ album.title }}</h3>
+            <br>
+<h4 style="margin: 0;">APRIL 2022</h4>
+            {#<h4 style="margin: 0;">{% if album.day %} {{ album.day|date("l, d F Y")|upper }} {% else %} {{ "now"|date("F Y")|upper }} {% endif %}</h4>
+            <h4 style="margin: 0;">{{ album.time_slot }}</h4>#}
+        </div>
+    </section>
+
+    <p style="page-break-after: always;">&nbsp;</p>
+
+    <table border="0" align="center" class="table">
+        <thead>
+            <tr>
+                <th colspan="15">
+                    {{ album.code ~ ": " ~ album.title }}
+                </th>
+            </tr>
+            <tr>
+                <th width="25" rowspan="3"><b>#</b></th>
+                <th width="109" rowspan="3"><b>Index No</b></th>
+                <th width="232" rowspan="3"><b>Candidate's Name</b></th>
+                <th width="56" rowspan="3"><b>Picture</b></th>
+                <th width="116" rowspan="3"><b>Candidate's Signature</b></th>
+                <th colspan="10" align="center"><b>Question Numbers and Marks Awarded</b></th>
+            </tr>
+            <tr>
+                <th width="76"><b>Section A</b></th>
+                <th colspan="8" align="center"><b>Section B</b></th>
+                <th width="105"><b>Total</b></th>
+            </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th width="68">&nbsp;</th>
+                <th>&nbsp;</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for key, student in album.students %}
+                {# {% set studphotourl = "https://adminioe.ucc.edu.gh/load/studimages/" ~ student.ref_no %} #}
+                <tr>
+                    <td height="52">{{ key+1 }}</td>
+                    <td>{{ student.regno }}</td>
+                    <td>{{ student.student_name }}</td>
+                    {# <td align="center"><img src="{{ studimage(studphotourl) }}" width="48" height="38" alt="student_pic" /></td> #}
+                     <td><td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    {# <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</td> #}
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <br/>
+    <br/>
+    <br style="page-break-after:always"/>
+
+    <font>
+        Supervisor's Name: ...................................................
+        <br/>
+        <br/>
+        <br/>
+        Date: ...........................................................................
+    </font>
+
+    <table width="100%">
+        <tr>
+            <td height="42" colspan="7" align="center">INVIGILATORS</td>
+        </tr>
+        <tr>
+            <td width="20%" height="31">NAME</td>
+            <td width="5%">&nbsp;</td>
+            <td width="19%">SIGNATURE</td>
+            <td width="6%">&nbsp;</td>
+            <td width="21%">NAME</td>
+            <td width="6%">&nbsp;</td>
+            <td width="23%">SIGNATURE</td>
+        </tr>
+        <tr>
+            <td>1)_______________________________</td>
+            <td>&nbsp;</td>
+            <td>______________________________</td>
+            <td>&nbsp;</td>
+            <td>5)_________________________________</td>
+            <td>&nbsp;</td>
+            <td>________________________</td>
+        </tr>
+        <tr>
+            <td>2)_______________________________</td>
+            <td>&nbsp;</td>
+            <td>______________________________</td>
+            <td>&nbsp;</td>
+            <td>6)_________________________________</td>
+            <td>&nbsp;</td>
+            <td>________________________</td>
+        </tr>
+        <tr>
+            <td>3)_______________________________</td>
+            <td>&nbsp;</td>
+            <td>______________________________</td>
+            <td>&nbsp;</td>
+            <td>7)_________________________________</td>
+            <td>&nbsp;</td>
+            <td>________________________</td>
+        </tr>
+        <tr>
+            <td>4)_______________________________</td>
+            <td>&nbsp;</td>
+            <td>______________________________</td>
+            <td>&nbsp;</td>
+            <td>8)_________________________________</td>
+            <td>&nbsp;</td>
+            <td>________________________</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{# input macro for spinning up a basic bootstrap styled form input #}
+{% macro input(type, name, class, id, placeholder, val, attrs) %}
+    <input 
+        type="{{ type|default('text') }}" 
+        name="{{ name }}" 
+        id="{{ id|default(name) }}"
+        class="{{ class|default('form-control') }}"
+        {% if placeholder is not null %} placeholder="{{ placeholder }}" {% endif %} 
+        {% if val is not null %} value="{{ val|e }}" {% endif %}
+        {% for key, attr in attrs %}
+            {{ key }}="{{ attr }}"
+        {% endfor %}
+    />
+{% endmacro %}
+
+{# label for form input labeling #}
+{% macro label(text, forInput, class, attrs) %}
+    <label {% if forInput is not null %} for="{{ forInput }}" {% endif %} class="{{ class|default('control-label') }}" {% for key, attr in attrs %} {{ key }}="{{ attr }}" {% endfor %}>{{ text }}</label>
+{% endmacro %}
+
+{# a complete set of form input (label + form element) ... perfect for text inputs or its children #}
+{% macro inputWrapper(formType, inputName, labelText, forInput, labelClass, formClass, placeholder, val, labelAttrs, formAttrs, wrapperClass) %}
+    {% import _self as forms %}
+
+    <div class="form-group {{ wrapperClass }}">
+        {{ forms.label(labelText, forInput, labelClass, labelAttrs) }}
+        {{ forms.input(formType, inputName, formClass, forInput, placeholder, val, formAttrs) }}
+    </div>
+{% endmacro %}
+
+{# form inputs with icons. Fontawesome is the default icon #}
+{% macro inputGroup(mainClass, prepend, type, name, inputClass, placeholder, val, groupAttrs, inputAttrs, append) %}
+    {% import _self as forms %}
+
+    <div class="{{ mainClass|default('input-group') }}" {% for key, attr in groupAttrs %} {{ key }}="{{ attr }}" {% endfor %}>
+        {% if prepend is not null %}
+            <div class="input-group-prepend">
+                <span class="input-group-text">
+                    <i class="{{ prepend }}"></i>
+                </span>
+            </div>
+        {% endif %}
+
+        {{ forms.input(type, name, inputClass, null, placeholder, val, inputAttrs) }}
+
+        {% if append is not null %}
+            <div class="input-group-append">
+                <span class="input-group-text">
+                    <i class="{{ append }}"></i>
+                </span>
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro csrf(token) %}
+    {% import _self as forms %}
+    {{ forms.input('hidden', 'csrf-token', null, null, null, token, null) }}
+{% endmacro %}
