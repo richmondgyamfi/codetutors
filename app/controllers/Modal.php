@@ -657,7 +657,7 @@ class Modal extends Controller{
                                             class="hidden"><?php echo $adata->actdate; ?></span></time>
                                     <div class="cbp_tmicon"><i class="zmdi zmdi-account"></i></div>
                                     <div class="cbp_tmlabel">
-                                        <h2><a href="javascript:void(0);"></a>Received By You</h2>
+                                        <h2><a href="javascript:void(0);"></a>Applied For Counselling</h2>
                                         <p>Council Needed: <?php echo $adata->council_needed; ?>
 
                                         </p>
@@ -670,8 +670,8 @@ class Modal extends Controller{
                                     <time class="cbp_tmtime"><span><?php echo $s_data->sub_date; ?></span></time>
                                     <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-thumb-up"></i></div>
                                     <div class="cbp_tmlabel">
-                                        <h2><a href="javascript:void(0);">YOU
-                                                <?php echo (($s_data->state == 2)?'REASSIGNED TO :'.$s_data->fullname:'COMPLETED');?></a>
+                                        <h2><a href="javascript:void(0);">
+                                                <?php echo (($s_data->state == 2)?'YOU REASSIGNED TO :'.$s_data->fullname:(($s_data->state == 3)?'PROGRESS REPORT GIVEN':(($s_data->state == 1)?'ASSIGNED TO :'.$s_data->fullname:'YOU COMPLETED')));?></a>
                                         </h2>
                                         <p><?=$s_data->comments;?></p>
                                     </div>
@@ -691,6 +691,69 @@ class Modal extends Controller{
     <?php
   }
  }
+
+ public function modal_status_staff(){
+    if(isset($_POST['app_id'])){
+      $conlog = $this->userModel->counsel_log_staff($_POST['app_id']);
+      $conlog1 = $this->userModel->counsel_log_staff($_POST['app_id']);
+      // var_dump($conlog);
+      // die();
+      foreach($conlog as $adata){}
+      ?>
+      <div class="modal fade right status_modal" id="status_modal" tabindex="-1" role="dialog"
+          aria-labelledby="myModalLabel" aria-hidden="true">
+  
+          <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+              <div class="modal-content" style="border-radius: 10px 10px;">
+                  <div class="modal-header" style="height:70px; background-color: #1c2473;">
+                      <h4 class="text-white" style="margin-top:-10px;">Application Stages </h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="closeModal1()">
+                          <span aria-hidden="true" class="text-white">x</span>
+                      </button>
+                  </div>
+                  <div class="modal-body bg-light">
+                      <div class="body">
+                          <div role="tabpanel" class="tab-pane" id="timeline">
+                              <ul class="cbp_tmtimeline">
+                                  <li>
+                                      <time class="cbp_tmtime"><span
+                                              class="hidden"><?php echo $adata->actdate; ?></span></time>
+                                      <div class="cbp_tmicon"><i class="zmdi zmdi-account"></i></div>
+                                      <div class="cbp_tmlabel">
+                                          <h2><a href="javascript:void(0);"></a>Applied For Counselling</h2>
+                                          <p>Council Needed: <?php echo $adata->council_needed; ?>
+  
+                                          </p>
+                                      </div>
+                                  </li>
+                                  <?php 
+                      if(!empty($conlog1)){
+                        foreach($conlog1 as $s_data){?>
+                                  <li>
+                                      <time class="cbp_tmtime"><span><?php echo $s_data->sub_date; ?></span></time>
+                                      <div class="cbp_tmicon bg-info"><i class="zmdi zmdi-thumb-up"></i></div>
+                                      <div class="cbp_tmlabel">
+                                          <h2><a href="javascript:void(0);">
+                                                  <?php echo (($s_data->state == 2)?'YOU REASSIGNED TO :'.$s_data->fullname:(($s_data->state == 3)?'PROGRESS REPORT GIVEN':(($s_data->state == 1)?'ASSIGNED TO :'.$s_data->fullname:'YOU COMPLETED')));?></a>
+                                          </h2>
+                                          <p><?=$s_data->comments;?></p>
+                                      </div>
+                                  </li>
+                                  <?php }
+                        }
+                         
+                          ?>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+  
+              </div>
+          </div>
+      </div>
+      <?php
+    }
+   }
 
 }
 ?>

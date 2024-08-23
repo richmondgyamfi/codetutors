@@ -313,7 +313,7 @@
                     <a class="nav-link" href="<?php echo URLROOT ?>/users/logout1.php">LOGOUT</a>
                 </li>
               <?php endif; ?>
-            </ul>
+              </ul>
         </div>
     </div>
 </nav>

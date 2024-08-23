@@ -2,6 +2,7 @@
 include APPROOT.'/views/includes/head.php';
 include APPROOT.'/views/includes/nav.php';
 include APPROOT.'/views/includes/sidenav.php';
+
 ?>
 
 <section class="content d-print-none">
@@ -10,6 +11,10 @@ include APPROOT.'/views/includes/sidenav.php';
             <div class="col-lg-7 col-md-6 col-sm-12">
             <?php //var_dump($data['total_app']);?>
                 <h2>All Applicants
+                    <?php 
+                    //  var_dump($data['total_cen']);
+                    //  echo 'jdnsknjsnad';
+                     ?>
                 <small class="text-muted">Welcome! <?=$_SESSION['fullname']?></small>
                 </h2>
             </div>
@@ -29,12 +34,21 @@ include APPROOT.'/views/includes/sidenav.php';
                                 <thead>
                                     <tr>
                                         <th>Date Submitted</th>
+                                        <th>Staff ID</th>
                                         <th>Applicants Fullname</th>
                                         <th>Phone Number</th>
+                                        <th>Study Centre1</th>
+                                        <th>Study Centre2</th>
+                                        <!-- <th>Study Centre3</th> -->
                                         <th>Current Location</th>
                                         <th>First Degree</th>
                                         <th>Second/Qualification Degree</th>
                                         <th>Date of Birth</th>                                            
+                                        <th>Part/Full Time</th>
+                                        <th>Department Faculty</th>
+                                        <th>Original Institution</th>
+                                        <th>Course Taught</th>
+                                        <th>Bank Details</th>
                                         <th>Status</th>
                                         <th>Action</th>
                                     </tr>
@@ -43,31 +57,56 @@ include APPROOT.'/views/includes/sidenav.php';
                                 <?php foreach($data['total_app'] as $data){ ?>
                                     <tr>
                                         <td><?php echo $data->date_submitted?></td>
+                                        <td><?php echo $data->staffno?></td>
                                         <td><?php echo strtoupper($data->fname.' '.$data->mname.' '.$data->lname);?></td>
                                         <td><?php echo $data->phone_no?></td>
+                                        <td><?php echo $data->study_cen1?></td>
+                                        <td><?php echo $data->study_cen2?></td>
+                                        <!-- <td><?php echo $data->study_cen3?></td> -->
                                         <td><?php echo strtoupper($data->curr_loc);?></td>
                                         <td><?php echo strtoupper($data->f_degree);?></td>
                                         <td><?php echo strtoupper($data->s_degree.$data->othercertname);?></td>
                                         <td>
                                         <?php echo $data->dob?>
                                         </td>
+                                        <td><?php echo strtoupper($data->part_full_time);?></td>
+                                        <td><?php echo strtoupper($data->dept_faculty);?></td>
+                                        <td><?php echo strtoupper($data->original_institution);?></td>
+                                        <td><?php echo strtoupper($data->course_taught);?></td>
+                                        <td><?php echo strtoupper($data->bank_name.' '.$data->bank_branch.' '.$data->account_number);?></td>
                                         <td><span class="badge <?=((($data->status == 2) || ($data->status == 4))?'badge-danger':'badge-success')?> ">
                                         <?=(($data->status == 0)?'Pending':(($data->status == 1)?'Selected':(($data->status == 2)?'Rejected':(($data->status == 3)?'Appointed':(($data->status == 4)?'Not Appointed':'')))))?></span></td>
                                         <td>
-                                        <button class="btn btn-primary btn-sm btn-round" onclick="assessor(<?php echo $data->id;?>)">
-                                        <i class="zmdi zmdi-file"></i>
-                                        </button>
-                                        <?php if($data->status == 0) { ?>
-                                        <a href="javascript:void(0);" class="btn btn-primary btn-sm btn-round" 
-                                        data-toggle="modal" data-original-title="Select/Reject" data-target="#approve" title="Select/Reject" data-id="<?php echo $data->id;?>">
-                                            <i class="zmdi zmdi-edit"></i>
-                                        </a>
-                                        <?php }elseif($data->status == 1) { ?>
-                                        <a href="javascript:void(0);" class="btn btn-primary btn-sm btn-round" 
-                                        data-toggle="modal" data-original-title="Appointed/Not Appointed" data-target="#appoint" title="Appointed/Not Appointed" data-id="<?php echo $data->id;?>">
-                                            <i class="zmdi zmdi-plus"></i>
-                                        </a>
-                                        <?php } ?>
+                                            <?php if(!isset($_SESSION['centre'])):?>
+                                                <button class="btn btn-primary btn-sm btn-round" onclick="assessor(<?php echo $data->id;?>)">
+                                                <i class="zmdi zmdi-file"></i>
+                                                </button>
+                                                <a onclick="Popup=window.open('application_form.php?<?php echo $data->phone_no?>','Popup','toolbar=no,location=0,status=no,menubar=yes,scrollbars=yes,resizable=no, width=800,height=1000,left=400,top=250' ).focus(); return false;" 
+                                                class="btn btn-success btn-sm btn-round" href="javascript(void)">
+                                                <i class="zmdi zmdi-edit"></i>
+                                                </a>
+                                                <!-- <a href="application_form.php?<?php echo $data->phone_no?>" class="btn btn-success btn-sm btn-round" 
+                                                data-original-title="View Form" title="View Form" data-id="<?php echo $data->id;?>">
+                                                    <i class="zmdi zmdi-plus"></i>
+                                                </a> -->
+                                                <?php //if($data->status == 0) { ?>
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-sm btn-round" 
+                                                data-toggle="modal" data-original-title="Select/Reject" data-target="#approve" title="Select/Reject" data-id="<?php echo $data->id;?>">
+                                                    <i class="zmdi zmdi-eye"></i>
+                                                </a>
+                                                <?php //}elseif($data->status == 1) { ?>
+                                                <a href="javascript:void(0);" class="btn btn-primary btn-sm btn-round" 
+                                                data-toggle="modal" data-original-title="Appointed/Not Appointed" data-target="#appoint" title="Appointed/Not Appointed" data-id="<?php echo $data->id;?>">
+                                                    <i class="zmdi zmdi-plus"></i>
+                                                </a>
+                                                <?php //} ?>
+                                            <?php else:?>
+                                                <a onclick="Popup=window.open('application_form.php?<?php echo $data->phone_no?>','Popup','toolbar=no,location=0,status=no,menubar=yes,scrollbars=yes,resizable=no, width=800,height=1000,left=400,top=250' ).focus(); return false;" 
+                                                class="btn btn-success btn-sm btn-round" href="javascript(void)">
+                                                <i class="zmdi zmdi-edit"></i>
+                                                </a>
+                                            <?php endif;?>
+                                        
                                         </td>
                                     </tr>
                                     <?php } ?>
@@ -109,6 +148,10 @@ include APPROOT."/views/includes/footer.php";
             <div class="funkyradio-primary col-md-6 col-lg-6 col-sm-6">
                 <input type="radio" name="radio" class="radio" id="radio2" value="2"/>
                 <label for="radio2">Reject Applicant</label>
+            </div>
+            <div class="funkyradio-primary col-md-6 col-lg-6 col-sm-6">
+                <input type="radio" name="radio" class="radio" id="radio5" value="0"/>
+                <label for="radio5">Reverse Applicant</label>
             </div>
         </div>
         </div>
@@ -152,6 +195,10 @@ include APPROOT."/views/includes/footer.php";
                 <input type="radio" name="radio1" class="radio" id="radio4" value="4"/>
                 <label for="radio4">Not Appointed</label>
             </div>
+            <div class="funkyradio-primary col-md-6 col-lg-6 col-sm-6">
+                <input type="radio" name="radio1" class="radio" id="radio6" value="0"/>
+                <label for="radio6">Reverse Applicant</label>
+            </div>
         </div>
         </div>
         <div class="row mb-4 mt-5">
@@ -172,15 +219,15 @@ include APPROOT."/views/includes/footer.php";
 </div>
 
 <script>
-    $("#approve").on('show.bs.modal', function(event){
-        var button = $(event.relatedTarget);
-        var promo_id = button.data('id');
-        // var promo_stage = button.data('entry');
+    // $("#approve").on('show.bs.modal', function(event){
+    //     var button = $(event.relatedTarget);
+    //     var promo_id = button.data('id');
+    //     // var promo_stage = button.data('entry');
 
-        var modal = $(this);
-        modal.find('.modal-body #promo_id').val(promo_id);
-        // modal.find('.modal-body #promo_stage').val(promo_stage);
-    });
+    //     var modal = $(this);
+    //     modal.find('.modal-body #promo_id').val(promo_id);
+    //     // modal.find('.modal-body #promo_stage').val(promo_stage);
+    // });
 
     $("#appoint").on('show.bs.modal', function(event){
         var button = $(event.relatedTarget);
@@ -196,7 +243,7 @@ include APPROOT."/views/includes/footer.php";
     $(document).ready(function(){
     $('.uploadfileapproval').on('submit',function(event){
       event.preventDefault();
-      if(document.getElementById("radio1").checked == false && document.getElementById("radio2").checked == false){
+      if(document.getElementById("radio1").checked == false && document.getElementById("radio2").checked == false && document.getElementById("radio5").checked == false){
         Swal.fire({
               title: '<span class="text-danger font-weight-bold">Error!!!</span>',
               html: '<span class="text-danger">Select a your reply (Select/Reject Applicant)</span>',
@@ -274,7 +321,7 @@ include APPROOT."/views/includes/footer.php";
 $(document).ready(function(){
     $('#appt_dis').on('submit',function(event){
       event.preventDefault();
-      if(document.getElementById("radio3").checked == false && document.getElementById("radio4").checked == false){
+      if(document.getElementById("radio3").checked == false && document.getElementById("radio4").checked == false && document.getElementById("radio5").checked == false){
         Swal.fire({
               title: '<span class="text-danger font-weight-bold">Error!!!</span>',
               html: '<span class="text-danger">Select a your reply (Select/Reject Applicant)</span>',

@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- SEO Meta Tags -->
-    <meta name="description"
-        content="Aria is a business focused HTML landing page template built with Bootstrap to help you create lead generation websites for companies and their services.">
-    <meta name="author" content="Inovatik">
+    <meta name="description" content="University of Cape Coast college of distance education examiners application.">
+    <meta name="author" content="Richmond Gyamfi Nketia">
 
     <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
     <meta property="og:site_name" content="" /> <!-- website name -->
@@ -23,10 +22,8 @@
     <title>CoDE EXAMINERS APP</title>
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
     <link href="<?php echo URLROOT ?>/public/css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo URLROOT ?>/public/css/fontawesome-all.css" rel="stylesheet">
     <link href="<?php echo URLROOT ?>/public/css/swiper.css" rel="stylesheet">
@@ -60,8 +57,7 @@
         <h5 class="text-white">CoDE EXAMINERS</h5>
 
         <!-- Mobile Menu Toggle Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
-            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-awesome fas fa-bars"></span>
             <span class="navbar-toggler-awesome fas fa-times"></span>
         </button>
@@ -98,11 +94,10 @@
                             <h2 class="text-white rounded" style="background-color: #113448;"> <span>PART-TIME CoDE
                                     EXAMINERS RECRUITMENT</span></h2>
                             <p class="p-heading p-large">UNIVERSITY OF CAPE COAST, CoDE EXAMINERS RECRUITMENT</p>
-                            <a class="btn-solid-lg page-scroll"
-                                href="<?php echo URLROOT; ?>/code_examiners/login.php">ADMIN PAGE</a>
-                            <a class="btn-solid-lg page-scroll"
-                                href="<?php echo URLROOT; ?>/code_examiners/apply.php">APPLY AS A EXAMINERS</a>
-                            <!-- <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/print.php">PRINT EXAMINERS APPOINTMENT LETTER</a> -->
+                            <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/login.php">ADMIN PAGE</a>
+                            <!-- <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/apply.php">APPLY AS A EXAMINERS</a> -->
+                            <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/print.php">PRINT EXAMINERS APPOINTMENT
+                                LETTER</a>
                         </div>
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->
@@ -136,8 +131,7 @@
                                     15th SEPTEMBER to 16th DECEMBER 2021
                                 </span>
                             </li>
-                            <li
-                                class="list-group-item d-flex justify-content-between align-items-center testimonial-text">
+                            <li class="list-group-item d-flex justify-content-between align-items-center testimonial-text">
                                 College of Distance Education is inviting all persons to teach courses under to apply
                                 for the 2021/2022 Academic Year
 
@@ -147,8 +141,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
                     <div class="image-container">
-                        <img class="img-fluid" src="<?php echo URLROOT ?>/public/images/graduation.jpg"
-                            alt="alternative">
+                        <img class="img-fluid" src="<?php echo URLROOT ?>/public/images/graduation.jpg" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -211,31 +204,25 @@
                         <div class="section-title text-uppercase">Duties of A Course Tutor</div>
                         <small>A Course Tutor is expected to: </small>
                         <ul class="list-group">
-                            <li
-                                class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
+                            <li class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
                                 • adopt/ adapt teaching strategies to enhance the teaching and learning of the course
                                 applied for;
                             </li>
-                            <li
-                                class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
+                            <li class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
                                 • support the assessment strategy proposed by the Course Expert at the University of
                                 Cape Coast;
                             </li>
-                            <li
-                                class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
+                            <li class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
                                 • mark Quizzes and End-of-Semester Examination scripts;
                             </li>
-                            <li
-                                class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
+                            <li class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
                                 • organise remedial teaching/learning sessions as and when necessary to meet the
                                 learning needs of students;
                             </li>
-                            <li
-                                class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
+                            <li class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
                                 • guide the students to develop independent learning and critical thinking skills;
                             </li>
-                            <li
-                                class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
+                            <li class="text-capitalize list-group-item d-flex justify-content-between align-items-center">
                                 • provide advisory services to the Institute of Education, University of Cape Coast;<br>
                                 etc.
                             </li>
@@ -271,8 +258,7 @@
                 </div> <!-- end of col -->
                 <div class="col-lg-6">
                     <div class="image-container">
-                        <img class="img-fluid" src="<?php echo URLROOT ?>/public/images/1.jpg" width="450px"
-                            alt="alternative">
+                        <img class="img-fluid" src="<?php echo URLROOT ?>/public/images/1.jpg" width="450px" alt="alternative">
                     </div> <!-- end of image-container -->
                 </div> <!-- end of col -->
             </div> <!-- end of row -->
@@ -338,7 +324,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="copyright white">
-                        Copyright &copy; <?php echo date("Y");?><strong>
+                        Copyright &copy; <?php echo date("Y"); ?><strong>
                             <span>Institute of Education.</span>
                         </strong> All Rights Reserved
                     </div>
@@ -389,15 +375,14 @@
 </body>
 
 <script>
-// $(document).ready(function() {
-//     // checkCookie();
-//     $('#infomodal').modal('show');
-// });
+    // $(document).ready(function() {
+    //     // checkCookie();
+    //     $('#infomodal').modal('show');
+    // });
 </script>
 
 </html>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">

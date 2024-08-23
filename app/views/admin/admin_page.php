@@ -12,11 +12,15 @@ foreach($data['total_app'] as $totals){}
             <div class="col-lg-7 col-md-6 col-sm-12">
             <?php //var_dump($data['total_app']);?>
                 <h2>
-                <?php if($_SESSION['role'] == 2): ?>
-                    Counseling
+                <?php if($_SESSION['role'] == 2 || $_SESSION['role'] == 3): ?>
+                    <?=(($_SESSION['role'] == '3')?'':(($_SESSION['role'] == '2')?'ADMIN':''))?> Counseling 
                     <?php endif; ?>
                     Dashboard
-                <small class="text-muted">Welcome! <?=$_SESSION['fullname']?></small>
+                <small class="text-muted">Welcome! <?=$_SESSION['fullname']?>
+                <?php 
+                    //  var_dump($data['total_cen']);
+                    //  echo 'jdnsknjsnad';
+                     ?></small>
                 </h2>
             </div>
             <!-- <div class="col-lg-5 col-md-6 col-sm-12">                
@@ -34,7 +38,7 @@ foreach($data['total_app'] as $totals){}
         <div class="row clearfix">
             <div class="col-sm-12">
                 <div class="card">                   
-                    <?php if($_SESSION['role'] == 2): ?>
+                    <?php if($_SESSION['role'] == 2 || $_SESSION['role'] == 3): ?>
                     <div class="row clearfix">
                         <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                             <div class="body">
@@ -44,7 +48,7 @@ foreach($data['total_app'] as $totals){}
                                 <span id="linecustom1">1,4,2,6,5,7,5,8,5,2</span>
                             </div>
                         </div>                        
-                        <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                        <!-- <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                             <div class="body">
                                 <h2 class="number count-to m-t-0" data-from="0" data-to="<?=((!empty($data['counsel_studapp']))?count($data['counsel_studapp']):'0')?>" data-speed="1000" data-fresh-interval="1">
                                 <?=((!empty($data['counsel_studapp']))?count($data['counsel_studapp']):'0')?>
@@ -52,18 +56,16 @@ foreach($data['total_app'] as $totals){}
                                 <p class="text-muted ">Newly Applied</p>
                                 <span id="linecustom6">2,9,5,5,8,5,4,2,6</span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                             <div class="body">
                                 <h2 class="number count-to m-t-0" data-from="0" data-to="<?=((!empty($data['counselreceived']))?count($data['counselreceived']):'0')?>" data-speed="1000" data-fresh-interval="1">
                                 <?=((!empty($data['counselreceived']))?count($data['counselreceived']):'0')?>
                                 </h2>
-                                <p class="text-muted ">Total Received</p>
+                                <p class="text-muted ">Total Assigned</p>
                                 <span id="linecustom2">2,9,5,5,8,5,4,2,6</span>
                             </div>
                         </div>
-                    </div><br><hr><br>
-                    <div class="row clearfix">
                         <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                             <div class="body">
                                 <h2 class="number count-to m-t-0" data-from="0" data-to="<?=((!empty($data['counselreceived']))?count($data['counselreceived']):'0')?>" data-speed="1000" data-fresh-interval="1">
@@ -73,6 +75,9 @@ foreach($data['total_app'] as $totals){}
                                 <span id="linecustom3">1,5,3,6,6,3,6,8,4,7</span>
                             </div>
                         </div>
+                    </div><br><hr><br>
+                    <div class="row clearfix">
+                        
                         <div class="col-lg-4 col-md-4 col-sm-12 text-center">
                             <div class="body">
                                 <h2 class="number count-to m-t-0" data-from="0" data-to="<?=((!empty($data['counsel_completed']))?count($data['counsel_completed']):'0')?>" data-speed="1000" data-fresh-interval="1">
@@ -82,6 +87,16 @@ foreach($data['total_app'] as $totals){}
                                 <span id="linecustom4">1,5,3,6,6,3,6,8,4,7</span>
                             </div>
                         </div>
+                        <?php foreach($data['counsels_stat'] as $counsels_stat): ?>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-center">
+                            <div class="body">
+                                <h2 class="number count-to m-t-0" data-from="0" data-to="<?=$counsels_stat->totalno?>" data-speed="1000" data-fresh-interval="1">
+                                <?=$counsels_stat->totalno?></h2>
+                                <p class="text-muted">Number of Students Counseled by: <br><b><?=$counsels_stat->fullname?></b></p>
+                                <!-- <span id="linecustom5">1,5,3,6,6,3,6,8,4,7</span> -->
+                            </div>
+                        </div>
+                        <?php endforeach; ?>
                     </div>
                     <?php else: ?>
                         <div class="row clearfix">
@@ -139,6 +154,7 @@ foreach($data['total_app'] as $totals){}
                                         <span id="linecustom5">1,5,3,6,6,3,6,8,4,7</span>
                                     </div>
                                 </div>
+                                
                             </div>
                     <?php endif; ?>
                 </div>

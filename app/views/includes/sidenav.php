@@ -15,7 +15,7 @@
                     <a href="chat.html" title="Chat App"><i class="zmdi zmdi-comments"></i></a>-->
             <?php if($_SESSION['role'] == 1): ?>
                     <a href="<?php echo URLROOT; ?>/code_examiners/logout.php" title="Sign out"><i class="zmdi zmdi-power"></i></a>
-            <?php elseif($_SESSION['role'] == 2): ?>
+            <?php elseif($_SESSION['role'] == 2 || $_SESSION['role'] == 3): ?>
                     <a href="<?php echo URLROOT; ?>/users/logout.php" class="mega-menu" data-close="true" title="Sign out"><i class="zmdi zmdi-power"></i></a>
             <?php else: ?>
                     <a href="<?php echo URLROOT; ?>/users/logout.php" title="Sign out"><i class="zmdi zmdi-power"></i></a>
@@ -32,14 +32,41 @@
                         <!-- <li><a href="book-appointment.html">Selected Applicants</a></li> -->
                     </ul>
                 </li>
-            <?php elseif($_SESSION['role'] == 2): ?>
+            <?php elseif($_SESSION['role'] == 2 ): ?>
                 <li><a href="<?php echo URLROOT; ?>/admin_page.php"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>            
-                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Counseling Unit</span> </a>
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Counseling </span> </a>
                     <ul class="ml-menu">
-                        <li><a href="<?php echo URLROOT; ?>/counseling_stud.php">All Applicants</a></li>
-                        <li><a href="<?php echo URLROOT; ?>/received_stud.php">Received Students</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/counseling_stud.php">All Applicants (Students)</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/counseling_staff.php">All Applicants (Staff)</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/received_stud.php">Assigned Students</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/received_staff.php">Assigned Staff</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/allassigned_stud.php">Applicants Assigned (Students)</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/allassigned_staff.php">Applicants Assigned (Staff)</a></li>
+                        <!-- <li><a href="<?php echo URLROOT; ?>/reassigned.php">Reassigned Students</a></li> -->
                         <!--<li><a href="<?php echo URLROOT; ?>/report.php">Report</a></li>-->
                         <!-- <li><a href="book-appointment.html">Selected Applicants</a></li> -->
+                    </ul>
+                </li>
+            <?php elseif($_SESSION['role'] == 3): ?>
+                <li><a href="<?php echo URLROOT; ?>/admin_page.php"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>            
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Counseling </span> </a>
+                    <ul class="ml-menu">
+                        <!-- <li><a href="<?php echo URLROOT; ?>/counseling_stud.php">All Applicants</a></li> -->
+                        <li><a href="<?php echo URLROOT; ?>/received_stud.php">Assigned Students</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/received_staff.php">Assigned Staff</a></li>
+                        <!-- <li><a href="<?php echo URLROOT; ?>/reassigned.php">Reassigned Students</a></li> -->
+                        <!--<li><a href="<?php echo URLROOT; ?>/report.php">Report</a></li>-->
+                        <!-- <li><a href="book-appointment.html">Selected Applicants</a></li> -->
+                    </ul>
+                </li>
+                <?php elseif($_SESSION['role'] == 4): ?>
+                <li><a href="<?php echo URLROOT; ?>/admin_page.php"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a></li>            
+                <li><a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-account-o"></i><span>Counseling </span> </a>
+                    <ul class="ml-menu">
+                        <li><a href="<?php echo URLROOT; ?>/counseling_stud.php">All Applicants (Students)</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/counseling_staff.php">All Applicants (Staff)</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/allassigned_stud.php">Applicants Assigned (Students)</a></li>
+                        <li><a href="<?php echo URLROOT; ?>/allassigned_staff.php">Applicants Assigned (Staff)</a></li>
                     </ul>
                 </li>
             <?php else: ?>

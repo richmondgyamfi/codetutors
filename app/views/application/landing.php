@@ -92,7 +92,8 @@
                             <h2 class="text-white rounded" style="background-color: #113448;"> <span>APPOINTMENT AS COURSE TUTOR</span></h2>
                             <p class="p-heading p-large">UNIVERSITY OF CAPE COAST, COLLEGE OF DISTANCE EDUCATION TUTORS RECRUITMENT</p>
                             <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/users/login.php">ADMIN PAGE</a>
-                            <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/application_form.php">APPLY AS A TUTOR</a>
+                            <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/application_form.php">FILL THE COURSE TUTORS FORM</a>
+                            <!-- <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/application_form.php">APPLY AS A TUTOR</a> -->
                             
                         </div>
                         <h4><a class="text-white" href="https://youtu.be/lNGGZ5FdtrQ">Watch how to apply</a></h4>

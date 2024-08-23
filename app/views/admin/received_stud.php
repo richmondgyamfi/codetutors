@@ -20,7 +20,7 @@ $condata = $data['counsel_users'];
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
             <?php //var_dump($data['total_app']);?>
-                <h2>All Applicants
+                <h2>All Applicants - Students
                 <small class="text-muted">Welcome! <?=$_SESSION['fullname']?></small>
                 </h2>
             </div>
@@ -42,7 +42,9 @@ $condata = $data['counsel_users'];
                                         <th>Applicants Fullname</th>
                                         <th>Phone Number</th>
                                         <th>Email</th>
-                                        <th>Counseling Type</th>
+                                        <th>Counselling Type</th>
+                                        <th>Delivery Mode</th>
+                                        <th>Student Type</th>
                                         <th>Staff Assigned</th>
                                         <th>Status</th>
                                         <th>Date Submitted</th>
@@ -56,17 +58,19 @@ $condata = $data['counsel_users'];
                                         <td><?php echo $data->phone_no?></td>
                                         <td><?php echo strtoupper($data->email);?></td>
                                         <td><?php echo strtoupper($data->council_needed);?></td>
-                                        <td><?php echo strtoupper(!empty($data->received_by)?$data->received_by:'Awaiting To Be received');?></td>
+                                        <td><?php echo strtoupper($data->delivery_mode);?></td>
+                                        <td><?php echo strtoupper((($data->runtype == 'RG')?'REGULAR STUDENT':(($data->runtype == 'DC')?'DISTANCE STUDENT':(($data->runtype == 'IE')?'INSTITUTE OF EDUCATION STUDENT':(($data->runtype == 'SW')?'SANDWICH STUDENT':'')))));?></td>
+                                        <td><?php echo strtoupper(!empty($data->received_by)?$data->fullname:'Awaiting');?></td>
                                         
                                         <td>
-                                        <a href="#" onclick="promo_statushr(<?php echo $data->id;?>)" class="badge <?=((($data->status == 1) || ($data->status == 2))?'badge-danger':'badge-success')?>" title="View Status">
-                                        <?=(($data->status == 0)?'Pending':(($data->status == 1)?'Received':(($data->status == 2)?'Refered':(($data->status == 3)?'Completed':''))))?>
+                                        <a href="#" onclick="promo_statushr(<?php echo $data->id;?>)" class="badge <?=(($data->status == 1)?'badge-success':(($data->status == 2)?'badge-info':(($data->status == 3)?'badge-warning':'badge-danger')))?>" title="View Status">
+                                        <?=(($data->status == 0)?'Pending':(($data->status == 1)?'Assigned':(($data->status == 2)?'Refered':(($data->status == 3)?'Counselling Ongoing':(($data->status == 4)?'Completed':'')))))?>
                                         </a>
                                         </td>
                                         <td><?php echo $data->sub_date?></td>
                                         <td>
                                         <a href="javascript:void(0);" class="btn btn-primary btn-sm btn-round" 
-                                        data-toggle="modal" data-original-title="Appointed/Not Appointed" data-target="#appoint" title="Appointed/Not Appointed" data-id="<?php echo $data->id;?>">
+                                        data-toggle="modal" data-original-title="Act on Student" data-target="#appoint" title="Act on Student" data-id="<?php echo $data->id;?>">
                                             <i class="zmdi zmdi-plus"></i>
                                         </a>
                                         </td>
@@ -91,7 +95,7 @@ include APPROOT."/views/includes/footer.php";
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content" style="border-radius: 10px 10px;">
       <div class="modal-header" style="background-color: #1c2473;">
-        <h5 class="modal-title text-white p-2">Select/Reject Applicant</h5>
+        <h5 class="modal-title text-white p-2">Act on Student</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -104,8 +108,9 @@ include APPROOT."/views/includes/footer.php";
             <label for="centre_coor" class="font-weight-bold text-uppercase">Select Status</label>
             <select class="pb-2 d-block" style="width:100%;" onchange="showDiv(this)" id="radio1" name="radio1">
                 <option value="" selected disabled>Select Action on Article</option>
-                <option value="2">Reassign</option>
-                <option value="3">Completed</option>
+                <option value="2">Refer Applicant</option>
+                <option value="3">Progress Report</option>
+                <option value="4">Completed</option>
             </select>
         </div>
         <div id="ongo" style="display:none;">
@@ -212,7 +217,7 @@ $(document).ready(function(){
         }).then(function(result){
         if (result.value) {
         $.ajax({
-          url:"<?php echo URLROOT; ?>/users/counselup",
+          url:"<?php echo URLROOT; ?>/users/counselup.php",
           method:"POST",
           data:$('#appt_dis').serialize(),
           success:function(data)

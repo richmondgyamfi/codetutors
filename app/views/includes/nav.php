@@ -4,7 +4,7 @@
         <div class="navbar-header">
             <a href="javascript:void(0);" class="bars"></a>
             <a class="navbar-brand" href="<?php echo URLROOT; ?>/index.php"><img src="<?php echo URLROOT; ?>/public/images/ucclogo1.png" 
-            width="30" alt="Compass"><span class="m-l-10 txt"><?php if($_SESSION['role'] == 1){?> CoDE EXAMINERS <?php }elseif($_SESSION['role'] == 2){?>CoDE COUNSELORs  <?php }else{ ?> CoDE TUTION <?php } ?> </span></a>
+            width="30" alt="Compass"><span class="m-l-10 txt"><?php if($_SESSION['role'] == 1){?> CoDE EXAMINERS <?php }elseif($_SESSION['role'] == 2 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4){?>COUNSELORs  <?php }else{ ?> CoDE TUTION <?php } ?> </span></a>
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>            
@@ -14,6 +14,10 @@
             <a href="javascript:void(0);" class="mega-menu" data-toggle="modal" 
             data-original-title="password_reset" data-target="#resetpassword" title="Reset Password">
                 <i class="zmdi zmdi-key"></i>
+                <?php 
+                    //  var_dump($data['total_cen']);
+                    //  echo 'jdnsknjsnad';
+                     ?>
             </a>
         </li>
         <li class="dropdown">
@@ -88,9 +92,10 @@
                 <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
             </li>
             <li>
+
             <?php if($_SESSION['role'] == 1): ?>
                 <a href="<?php echo URLROOT; ?>/code_examiners/logout.php" class="mega-menu" data-close="true" title="Sign out"><i class="zmdi zmdi-power"></i></a>
-            <?php elseif($_SESSION['role'] == 2): ?>
+            <?php elseif($_SESSION['role'] == 2 || $_SESSION['role'] == 3 || $_SESSION['role'] == 4): ?>
                     <a href="<?php echo URLROOT; ?>/users/logout.php" class="mega-menu" data-close="true" title="Sign out"><i class="zmdi zmdi-power"></i></a>
             <?php else: ?>
                     <a href="<?php echo URLROOT; ?>/users/logout.php" class="mega-menu" data-close="true" title="Sign out"><i class="zmdi zmdi-power"></i></a>
@@ -185,6 +190,17 @@
                 <label class="fieldlabels text-uppercase font-weight-bold" for="email">Email</label>
                 <input type="email" class="form-control" id="email" name="email">
             </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-lg-12">
+        <div class="form-group">
+            <label class="fieldlabels text-uppercase font-weight-bold" for="center">Center</label>
+            <select class="form-control selectpicker" required name="center" id="center" required="">
+                <option disabled selected value="">Select Center...</option>
+                <?php foreach($data['total_cen'] as $bdata):?>
+                    <option value="<?= $bdata->centre_name ?>"><?= $bdata->centre_name ?></option>
+                <?php endforeach;?>
+            </select>
+        </div>
         </div>
         </div>
         <div class="row mb-4 mt-5">
