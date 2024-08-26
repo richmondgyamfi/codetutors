@@ -422,22 +422,22 @@ if (!empty($data['applicantdata'])) {
                                         <label for="admission_date_sec_deg" class="font-weight-bold">Admission Date</label>
                                         <input type="date" class="form-control" id="admission_date_sec_deg" name="admission_date_sec_deg" value="<?= (empty($applicantdata->admission_date_sec_deg) ? '' : $applicantdata->admission_date_sec_deg) ?>" placeholder="Enter the date of Admission">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->sec_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
                                         <label for="masters_inst_award" class="font-weight-bold">Awarding University (eg. University of Cape Coast)</label>
                                         <input type="text" class="form-control text-uppercase" id="masters_inst_award" name="masters_inst_award" value="<?= (empty($applicantdata->masters_inst_award) ? '' : $applicantdata->masters_inst_award) ?>" placeholder="Enter the institution awarded">
                                     </div>
                                     <div class="col-md-12" id="com">
                                         <div class="row">
-                                            <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                            <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->sec_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
                                                 <label for="completion_date_sec_deg" class="font-weight-bold">Completed Date</label>
                                                 <input type="date" class="form-control" id="completion_date_sec_deg" name="completion_date_sec_deg" value="<?= (empty($applicantdata->completion_date_sec_deg) ? '' : $applicantdata->completion_date_sec_deg) ?>" placeholder="Enter the date of Completion">
                                             </div>
-                                            <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                            <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->sec_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
                                                 <label for="certificate_no_sec_deg" class="font-weight-bold">Certificate Number</label>
                                                 <input type="text" class="form-control text-uppercase" id="certificate_no_sec_deg" name="certificate_no_sec_deg" value="<?= (empty($applicantdata->certificate_no_sec_deg) ? '' : $applicantdata->certificate_no_sec_deg) ?>" placeholder="Enter the Certificate Number">
                                             </div>
                                             
-                                            <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                            <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->sec_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
                                                 <label for="sec_deg_cert_yr" class="font-weight-bold">Year of Award (eg. 2023)</label>
                                                 <input type="number" class="form-control" id="sec_deg_cert_yr" name="sec_deg_cert_yr" value="<?= (empty($applicantdata->sec_deg_cert_yr) ? '' : $applicantdata->sec_deg_cert_yr) ?>" placeholder="Enter the year this certificate was awarded">
                                             </div>
@@ -510,19 +510,19 @@ if (!empty($data['applicantdata'])) {
                                         <label for="admission_date_first_deg" class="font-weight-bold">Admission Date</label>
                                         <input type="date" class="form-control" id="admission_date_first_deg" name="admission_date_first_deg" value="<?= (empty($applicantdata->admission_date_first_deg) ? '' : $applicantdata->admission_date_first_deg) ?>" placeholder="Enter the date of Admission">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="f_deg_inst_award" class="font-weight-bold">Awarding University (eg. University of Cape Coast)</label>
                                         <input type="text" class="form-control text-uppercase" id="f_deg_inst_award" name="f_deg_inst_award" value="<?= (empty($applicantdata->f_deg_inst_award) ? '' : $applicantdata->f_deg_inst_award) ?>" placeholder="Enter the institution awarded">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="first_deg_cert_yr" class="font-weight-bold">Year of Award (eg. 2023)</label>
                                         <input type="number" class="form-control" id="first_deg_cert_yr" name="first_deg_cert_yr" value="<?= (empty($applicantdata->first_deg_cert_yr) ? '' : $applicantdata->first_deg_cert_yr) ?>" placeholder="Enter the year this certificate was awarded">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="completion_date_first_deg" class="font-weight-bold">Completed Date</label>
                                         <input type="date" class="form-control" id="completion_date_first_deg" name="completion_date_first_deg" value="<?= (empty($applicantdata->completion_date_first_deg) ? '' : $applicantdata->completion_date_first_deg) ?>" placeholder="Enter the date of Completion">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="certificate_no_first_deg" class="font-weight-bold">Certificate Number</label>
                                         <input type="text" class="form-control text-uppercase" id="certificate_no_first_deg" name="certificate_no_first_deg" value="<?= (empty($applicantdata->certificate_no_first_deg) ? '' : $applicantdata->certificate_no_first_deg) ?>" placeholder="Enter the Certificate Number">
                                     </div>
@@ -576,19 +576,19 @@ if (!empty($data['applicantdata'])) {
                                         <label for="admission_date_first_deg2" class="font-weight-bold">Admission Date</label>
                                         <input type="date" class="form-control" id="admission_date_first_deg2" name="admission_date_first_deg2" value="<?= (empty($applicantdata->admission_date_first_deg2) ? '' : $applicantdata->admission_date_first_deg2) ?>" placeholder="Enter the date of Admission">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="f_deg_inst_award2" class="font-weight-bold">Awarding University (eg. University of Cape Coast)</label>
                                         <input type="text" class="form-control text-uppercase" id="f_deg_inst_award2" name="f_deg_inst_award2" value="<?= (empty($applicantdata->f_deg_inst_award2) ? '' : $applicantdata->f_deg_inst_award2) ?>" placeholder="Enter the institution awarded">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="first_deg_cert_yr2" class="font-weight-bold">Year of Award (eg. 2023)</label>
                                         <input type="number" class="form-control" id="first_deg_cert_yr2" name="first_deg_cert_yr2" value="<?= (empty($applicantdata->first_deg_cert_yr2) ? '' : $applicantdata->first_deg_cert_yr2) ?>" placeholder="Enter the year this certificate was awarded">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="completion_date_first_deg2" class="font-weight-bold">Completed Date</label>
                                         <input type="date" class="form-control" id="completion_date_first_deg2" name="completion_date_first_deg2" value="<?= (empty($applicantdata->completion_date_first_deg2) ? '' : $applicantdata->completion_date_first_deg2) ?>" placeholder="Enter the date of Completion">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="certificate_no_first_deg2" class="font-weight-bold">Certificate Number</label>
                                         <input type="text" class="form-control text-uppercase" id="certificate_no_first_deg2" name="certificate_no_first_deg2" value="<?= (empty($applicantdata->certificate_no_first_deg2) ? '' : $applicantdata->certificate_no_first_deg2) ?>" placeholder="Enter the Certificate Number">
                                     </div>
@@ -638,11 +638,11 @@ if (!empty($data['applicantdata'])) {
                                             <input type="text" class="form-control text-uppercase" name="othercertname" value="<?= (empty($applicantdata->othercertname) ? '' : $applicantdata->othercertname) ?>" id="othercertname" placeholder="TYPE OTHER CERTIFICATION">
                                         </div>
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="other_deg_inst_award" class="font-weight-bold">Awarding Institution (eg. University of Cape Coast)</label>
                                         <input type="text" class="form-control text-uppercase" id="other_deg_inst_award" name="other_deg_inst_award" value="<?= (empty($applicantdata->other_deg_inst_award) ? '' : $applicantdata->other_deg_inst_award) ?>" placeholder="Enter the institution awarded">
                                     </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase" <?= (!empty($applicantdata->t_degree_status == 'ONGOING')) ? 'style="display: none"' : 'style="display: block;"' ?>>
+                                    <div class="col-md-6 col-lg-6 col-sm-12 text-uppercase">
                                         <label for="other_deg_cert_yr2" class="font-weight-bold">Year of Award (eg. 2023)</label>
                                         <input type="number" class="form-control" id="other_deg_cert_yr2" name="other_deg_cert_yr2" value="<?= (empty($applicantdata->other_deg_cert_yr2) ? '' : $applicantdata->other_deg_cert_yr2) ?>" placeholder="Enter the year this certificate was awarded">
                                     </div>
@@ -1032,6 +1032,8 @@ if (!empty($data['applicantdata'])) {
                         </div>
                     </div>
                 </div>
+                <?php else: ?>
+                    <input id="centre_presence" name="centre_presence" value="<?= (empty($applicantdata->centre_presence) ? '' : $applicantdata->centre_presence) ?>" type="hidden">                    
                 <?php endif;?>
                 <div class="mt-5">
                     <div class="row clearfix">

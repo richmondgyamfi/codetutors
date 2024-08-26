@@ -123,6 +123,7 @@ class Users extends Controller
 
     public function tutor_apply()
     {
+        if (isset($_SESSION['user_id']) || isset($_SESSION['centre'])) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
             // var_dump($_POST);
@@ -273,7 +274,7 @@ class Users extends Controller
                     // echo $_POST['phone_no'];
                     $checktut = $this->userModel->check_datalog1($_POST['phone_no']);
                     
-                          $tutor_id = $checktut->id;
+                    $tutor_id = $checktut->id;
                     
                     $inserttut3 = $this->userModel->submit_App_other_details_phone($data, $tutor_id);
                 }else{
@@ -358,18 +359,23 @@ class Users extends Controller
                         'status' => 'error',
                         'message' => 'Please current work schedule and date of appointment'
                     ];
-                } elseif(empty($_POST['certificate_no_first_deg']) || empty($_POST['completion_date_first_deg'])){
+                } elseif(empty($_POST['completion_date_first_deg'])){
                     $data1 = [
                         'status' => 'error',
-                        'message' => 'Please enter certicate numbers and completed dates'
+                        'message' => 'Please enter completed dates'
                     ];
                 } else {
 
                     // $checkapp = $this->userModel->check_data($_POST['phone_no'], $_POST['email']);
                     // var_dump($cvfilePath);
                     // die();
-
-                    if (empty($cvfilePath)) {
+                    
+                    if (empty($staffpic)) {
+                        $data1 = [
+                            'status' => 'error',
+                            'message' => 'Please upload ur Picture'
+                        ];
+                    } elseif (empty($cvfilePath)) {
                         $data1 = [
                             'status' => 'error',
                             'message' => 'Please upload ur CV'
@@ -395,7 +401,7 @@ class Users extends Controller
                             'message' => 'Upload details of results details'
                         ];
                     } else {
-                        $data['state'] = '1';
+                        $data['state'] = '0';
                         if(isset($_SESSION['centre']) && !empty($_SESSION['centre'])){
                             $inserttut = $this->userModel->submit_App_phone($data);
                     // echo $_POST['phone_no'];
@@ -424,6 +430,14 @@ class Users extends Controller
             }
         }
         echo json_encode($data1);
+    }else{
+        $data1 = [
+            'status' => 'error',
+            'message' => 'Your Session has Expired Please login again'
+        ];
+        echo json_encode($data1);
+
+    }
     }
 
     public function councilact()

@@ -10,12 +10,12 @@ include APPROOT.'/views/includes/sidenav.php';
         <div class="row">
             <div class="col-lg-7 col-md-6 col-sm-12">
             <?php //var_dump($data['total_app']);?>
-                <h2>All Applicants
+                <h2>All Applicants: <?=$_SESSION['centre'] ?>
                     <?php 
                     //  var_dump($data['total_cen']);
                     //  echo 'jdnsknjsnad';
                      ?>
-                <small class="text-muted">Welcome! <?=$_SESSION['fullname']?></small>
+                <small class="text-muted">Welcome! <?=$_SESSION['fullname'] ?></small>
                 </h2>
             </div>
         </div>
@@ -75,7 +75,10 @@ include APPROOT.'/views/includes/sidenav.php';
                                         <td><?php echo strtoupper($data->course_taught);?></td>
                                         <td><?php echo strtoupper($data->bank_name.' '.$data->bank_branch.' '.$data->account_number);?></td>
                                         <td><span class="badge <?=((($data->status == 2) || ($data->status == 4))?'badge-danger':'badge-success')?> ">
-                                        <?=(($data->status == 0)?'Pending':(($data->status == 1)?'Selected':(($data->status == 2)?'Rejected':(($data->status == 3)?'Appointed':(($data->status == 4)?'Not Appointed':'')))))?></span></td>
+                                        <?=(($data->state == 0)?'Pending':(($data->state == 1)?'Applied':(($data->state == 2)?'Rejected':(($data->state == 3)?'Appointed':(($data->state == 4)?'Not Appointed':'')))))?></span>
+                                        <!-- <?=(($data->status == 0)?'Pending':(($data->status == 1)?'Selected':(($data->status == 2)?'Rejected':(($data->status == 3)?'Appointed':(($data->status == 4)?'Not Appointed':'')))))?></span> -->
+                                    <?='Present: '.$data->centre_presence ?>
+                                        </td>
                                         <td>
                                             <?php if(!isset($_SESSION['centre'])):?>
                                                 <button class="btn btn-primary btn-sm btn-round" onclick="assessor(<?php echo $data->id;?>)">

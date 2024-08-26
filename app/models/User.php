@@ -66,9 +66,10 @@ class User
     public function getall_app()
     {
         if($_SESSION['centre'] != null || !empty($_SESSION['centre'])){
-            $this->db->query("SELECT t2.*,t1.* FROM `applying_tutors` as t1 left join added_details_tutors as t2 on t1.id = t2.tutor_id where gender is not null AND f_degree != '' and (t1.study_cen1 = :centre || t1.study_cen2 = :centre)");
+            $cont = $_SESSION['centre'];
+            $this->db->query("SELECT t2.*,t1.* FROM `applying_tutors` as t1 left join added_details_tutors as t2 on t1.id = t2.tutor_id where gender is not null AND f_degree != '' and (t1.study_cen1 LIKE '%$cont%' or t1.study_cen2 LIKE '%$cont%')");
         
-            $this->db->bind(':centre', $_SESSION['centre']);
+            // $this->db->bind(':centre', $_SESSION['centre']);
         }else{
             $this->db->query("SELECT t2.*,t1.* FROM `applying_tutors` as t1 left join added_details_tutors as t2 on t1.id = t2.tutor_id where gender is not null AND f_degree != ''");
         }

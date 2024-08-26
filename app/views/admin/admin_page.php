@@ -15,7 +15,7 @@ foreach($data['total_app'] as $totals){}
                 <?php if($_SESSION['role'] == 2 || $_SESSION['role'] == 3): ?>
                     <?=(($_SESSION['role'] == '3')?'':(($_SESSION['role'] == '2')?'ADMIN':''))?> Counseling 
                     <?php endif; ?>
-                    Dashboard
+                    Dashboard : <?=$_SESSION['centre'] ?>
                 <small class="text-muted">Welcome! <?=$_SESSION['fullname']?>
                 <?php 
                     //  var_dump($data['total_cen']);
