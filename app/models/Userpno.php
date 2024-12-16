@@ -474,10 +474,30 @@ left join hr.staff as t2 on t1.staff_id = t2.staff_no where t1.status = 0");
         return $result;
     }
 
+    public function checkstaff_code_pno($sno)
+    {
+        $this->db->query("SELECT * FROM codeexaminers where phone_no = :phone_no");
+        // $this->db->query("SELECT * FROM codeexaminers where staffno = :phone_no and staffno like '%P%'");
+        $this->db->bind(':phone_no', $sno);
+
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
+
     public function checkstaff_no_hr($sno)
     {
         $this->db->query("SELECT * FROM hr.staff where staff_no = :staff_no");
         $this->db->bind(':staff_no', $sno);
+
+        $result = $this->db->resultSet();
+
+        return $result;
+    }
+    public function checkstaff_no_hr_pno($sno)
+    {
+        $this->db->query("SELECT * FROM hr.staff where phone = :phone_no");
+        $this->db->bind(':phone_no', $sno);
 
         $result = $this->db->resultSet();
 
@@ -495,7 +515,7 @@ left join hr.staff as t2 on t1.staff_id = t2.staff_no where t1.status = 0");
 
     public function gettotalcode_courses()
     {
-        $this->db->query("SELECT * FROM osis.course_db where RIGHT(code,1) like '%D%' and level < 450 ORDER BY title");
+        $this->db->query("SELECT * FROM osis.course_db where RIGHT(code,1) like '%D%' ORDER BY title");
 
         $result = $this->db->resultSet();
 

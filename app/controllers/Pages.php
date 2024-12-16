@@ -140,6 +140,9 @@ class Pages extends Controller
     public function admin_page()
     {
         if (isset($_SESSION['user_id'])) {
+            // $_SESSION['role']
+            // $total_app = $this->userModel->gettotal_app_coun();
+            // $com_app = $this->userModel->getall_app_coun();
             $total_app = $this->userModel->gettotal_app();
             $com_app = $this->userModel->getall_app();
             // var_dump($com_app);die();

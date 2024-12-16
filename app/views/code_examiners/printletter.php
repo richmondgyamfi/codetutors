@@ -41,7 +41,7 @@ if (!empty($data['applicantdata'])) {
                                         </div>-->
                                             <div class="col-sm-12">
                                                 <div class="form-group">
-                                                    <label class="text-uppercase font-weight-bold" for="phone_no">Staff
+                                                    <label class="text-uppercase font-weight-bold" for="phone_no">Phone
                                                         Number</label>
                                                     <input type="tel" class="form-control" maxlength="10" id="phone_no" name="phone_no" placeholder="Staff Number">
                                                 </div>
@@ -83,28 +83,28 @@ if (!empty($data['applicantdata'])) {
                                     <div class="col-md-8 col-lg-8 col-xl-8 col-sm-8">
                                         <p>Tel.: 0332-096502 / 03321- 35203 / 36947<br>
                                             Fax: 03321- 33655 <br>
-                                            E-mail: code.examsunit@ucc.edu.gh/cce@ucc.edu.gh / cceucc@yahoo.com </p>
-                                        <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.2/069 </p>
+                                            E-mail: code.examsunit@ucc.edu.gh/cce@ucc.edu.gh </p>
+                                        <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.3/0013 </p>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4">
                                         <p>UNIVERSITY OF POST OFFICE <br>
                                             CAPE COAST</p>
-                                        <p>8th July, 2024</p>
+                                        <p>5th December, 2024</p>
                                     </div>
                                     <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
                                         <p>TEAM LEADERS
                                             <br>
                                             Mr./Mrs./Ms. <?= $_SESSION['ename'] ?>
                                         </p>
-                                        <p><b>INVITATION TO CO-ORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END OF FIRST SEMESTER
+                                        <p><b>INVITATION TO CO-ORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END OF SECOND SEMESTER
                                                 EXAMINATION
                                                 SCRIPTS (2023/2024)</b></p>
                                         <p>You are kindly invited as a <b>Team Leader</b> to participate in the coordination meeting
                                             and
-                                            nonresidential conference marking of End-of-Semester I Examinations scripts
+                                            nonresidential conference marking of End-of-Second Semester Examinations scripts
                                             (2023/2024)
                                             scheduled for
-                                            <b>18th to 25th July, 2024</b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking
+                                            <b>15th to 22nd December, 2024</b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking
                                             Centre.
                                             Please, you have
                                             been selected to mark <b><?= $_SESSION['course']; ?></b>.
@@ -113,11 +113,11 @@ if (!empty($data['applicantdata'])) {
                                         <?= (($_SESSION['resident_status'] == 'RESIDENT MARKER') ? 'and accommodation will be confirmed through text messages' : '') ?>).</b><br> -->
                                             <b>Please, note the following schedule:</b>
                                         <ul>
-                                            <li>Sunday, 14th July, 2024 - Arrival of Team Leader at CoDE, UCC</li>
-                                            <li>Monday, 15th July, 2024 - Coordination of Team Leaders by Chief Examiners at CoDE, UCC </li>
-                                            <li>Tuesday, 16th July, 2024 - Departure of Team Leaders to Marking Centres </li>
-                                            <li>Thursday, 18th July, 2024 - Opening Ceremony and Coordination of Assistant Examiners by Team Leaders at the marking centres (9:00 am prompt).</li>
-                                            <li>18th – 25th July, 2024 - Marking period</li>
+                                            <li>Wednesday, 11th December, 2024 - Arrival of Team Leader at CoDE, UCC</li>
+                                            <li>Thursday, 12th December, 2024 - Coordination of Team Leaders by Chief Examiners at CoDE, UCC </li>
+                                            <li>Friday, 13th December, 2024 - Departure of Team Leaders </li>
+                                            <li>Sunday, 15th December, 2024 - Opening Ceremony and Coordination of Assistant Examiners by Team Leaders at the marking centres (9:00 am prompt).</li>
+                                            <li>15th – 22nd December, 2024 - Marking period</li>
                                         </ul>
                                         </p>
                                         <p>
@@ -156,9 +156,10 @@ if (!empty($data['applicantdata'])) {
 
                                         <p>Thank You.</p>
                                         Yours faithfully,<br>
-                                        SIGNED <br>
-                                        Matthew Quaidoo <br>
-                                        <b>(Coordinator)</b> <br>
+                                        <!-- SIGNED <br> -->
+                                        <img src="<?php echo URLROOT ?>/public/images/signcode.png" width="150"><br>
+                                        Abigail Boatemaa Osafo <br>
+                                        <b>(HEAD)</b> <br>
                                         <b>For: Provost</b><br>
                                         <div class="row">
                                             <div class="col-1">Cc:</div>
@@ -196,33 +197,33 @@ if (!empty($data['applicantdata'])) {
                                 <div class="col-md-8 col-lg-8 col-xl-8 col-sm-8">
                                     <p>Tel.: 0332-096502 / 03321- 35203 / 36947<br>
                                         Fax: 03321- 33655 <br>
-                                        E-mail: code.examsunit@ucc.edu.gh/cce@ucc.edu.gh / cceucc@yahoo.com </p>
-                                    <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.2/068 </p>
+                                        E-mail: code.examsunit@ucc.edu.gh/cce@ucc.edu.gh </p>
+                                    <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.3/0013 </p>
                                 </div>
                                 <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4">
                                     <p>UNIVERSITY OF POST OFFICE <br>
                                         CAPE COAST</p>
-                                    <p>8th July, 2024</p>
+                                    <p>5th December, 2024</p>
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
                                     <p>ASSISTANT EXAMINERS
                                         <br>
                                         Mr./Mrs./Ms. <?= $_SESSION['ename'] ?>
                                     </p>
-                                    <p><b>INVITATION TO CO-ORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END OF FIRST SEMESTER EXAMINATION
+                                    <p><b>INVITATION TO CO-ORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END OF SECOND SEMESTER EXAMINATION
                                             SCRIPTS (2023/2024)</b></p>
                                     <p>
                                         You are kindly invited as an <b>Assistant Examiner</b> to participate in the non-residential
-                                        conference marking of End of Semester I Examinations scripts (2023/2024) scheduled for
-                                        <b> 18th – 25th July, 2024 </b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking Centre. Please, you
+                                        conference marking of End of Second Semester Examinations scripts (2023/2024) scheduled for
+                                        <b> 15th – 22nd December, 2024 </b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking Centre. Please, you
                                         have been selected to mark <b><?= $_SESSION['course']; ?></b>.
                                     </p>
                                     <b>Please, note the following schedule:</b>
                                     <ul>
-                                        <li>Thursday, 18th July, 2024 - Arrival of Team Leaders and Assistant Examiners at the various marking centres (9:00 am promt). </li>
-                                        <li>Thursday, 18th July, 2024 - Opening Ceremony and Coordination of Assistant
+                                        <li>Sunday, 15th December, 2024 - Arrival of Team Leaders and Assistant Examiners at the various marking centres (9:00 am promt). </li>
+                                        <li>Sunday, 15th December, 2024 - Opening Ceremony and Coordination of Assistant
                                         Examiners at the marking centres. </li>
-                                        <li>18th – 25th July, 2024 - Marking Period </li>
+                                        <li>15th – 22nd December, 2024 - Marking Period </li>
                                     </ul>
                                     </p>
                                     <p>
@@ -249,9 +250,10 @@ if (!empty($data['applicantdata'])) {
                                         ensure the overall integrity of the exercise.</p>
                                     <p>Thank You.</p>
                                     Yours faithfully,<br>
-                                    SIGNED <br>
-                                    Matthew Quaidoo <br>
-                                    <b>(Coordinator)</b> <br>
+                                    <!-- SIGNED <br> -->
+                                        <img src="<?php echo URLROOT ?>/public/images/signcode.png" width="150"><br>
+                                        Abigail Boatemaa Osafo <br>
+                                    <b>(HEAD)</b> <br>
                                     <b>For: Provost, CoDE</b>
 
                                     <br><br>

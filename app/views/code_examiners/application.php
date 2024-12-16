@@ -177,7 +177,7 @@ foreach ($data['staffdata'] as $applicant) {
                                                     <?= (!empty($applicant->course) ? $applicant->course : '- Course -'); ?>
                                                 </option>
                                                 <?php foreach ($data['total_cos'] as $totalcos) { ?>
-                                                    <option value="<?= $totalcos->course_name ?>"><?= $totalcos->course_name ?>
+                                                    <option value="<?= $totalcos->title.': '.$totalcos->code ?>"><?= $totalcos->title.': '.$totalcos->code; ?>
                                                     </option>
                                                 <?php } ?>
                                             </select>

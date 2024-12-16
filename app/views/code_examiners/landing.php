@@ -95,7 +95,7 @@
                                     EXAMINERS RECRUITMENT</span></h2>
                             <p class="p-heading p-large">UNIVERSITY OF CAPE COAST, CoDE EXAMINERS RECRUITMENT</p>
                             <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/login.php">ADMIN PAGE</a>
-                            <!-- <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/apply.php">APPLY AS A EXAMINERS</a> -->
+                            <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/apply.php">APPLY AS A EXAMINERS</a>
                             <a class="btn-solid-lg page-scroll" href="<?php echo URLROOT; ?>/code_examiners/print.php">PRINT EXAMINERS APPOINTMENT
                                 LETTER</a>
                         </div>
