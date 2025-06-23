@@ -84,27 +84,25 @@ if (!empty($data['applicantdata'])) {
                                         <p>Tel.: 0332-096502 / 03321- 35203 / 36947<br>
                                             Fax: 03321- 33655 <br>
                                             E-mail: code.examsunit@ucc.edu.gh/cce@ucc.edu.gh </p>
-                                        <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.3/0013 </p>
+                                        <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.3/0012 </p>
                                     </div>
                                     <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4">
                                         <p>UNIVERSITY OF POST OFFICE <br>
                                             CAPE COAST</p>
-                                        <p>5th December, 2024</p>
+                                        <p>23rd June, 2025</p>
                                     </div>
                                     <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
                                         <p>TEAM LEADERS
                                             <br>
                                             Mr./Mrs./Ms. <?= $_SESSION['ename'] ?>
                                         </p>
-                                        <p><b>INVITATION TO CO-ORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END OF SECOND SEMESTER
-                                                EXAMINATION
-                                                SCRIPTS (2023/2024)</b></p>
+                                        <p><b>INVITATION TO COORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END-OF-FIRST SEMESTER EXAMINATIONS SCRIPTS (2024/2025)</b></p>
                                         <p>You are kindly invited as a <b>Team Leader</b> to participate in the coordination meeting
                                             and
-                                            nonresidential conference marking of End-of-Second Semester Examinations scripts
-                                            (2023/2024)
+                                            nonresidential conference marking of End-of-First Semester Examinations scripts
+                                            (2024/2025)
                                             scheduled for
-                                            <b>15th to 22nd December, 2024</b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking
+                                            <b>30th June – 7th July, 2025</b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking
                                             Centre.
                                             Please, you have
                                             been selected to mark <b><?= $_SESSION['course']; ?></b>.
@@ -113,21 +111,17 @@ if (!empty($data['applicantdata'])) {
                                         <?= (($_SESSION['resident_status'] == 'RESIDENT MARKER') ? 'and accommodation will be confirmed through text messages' : '') ?>).</b><br> -->
                                             <b>Please, note the following schedule:</b>
                                         <ul>
-                                            <li>Wednesday, 11th December, 2024 - Arrival of Team Leader at CoDE, UCC</li>
-                                            <li>Thursday, 12th December, 2024 - Coordination of Team Leaders by Chief Examiners at CoDE, UCC </li>
-                                            <li>Friday, 13th December, 2024 - Departure of Team Leaders </li>
-                                            <li>Sunday, 15th December, 2024 - Opening Ceremony and Coordination of Assistant Examiners by Team Leaders at the marking centres (9:00 am prompt).</li>
-                                            <li>15th – 22nd December, 2024 - Marking period</li>
+                                            <li>Thursday, 26th June, 2025 - Arrival of Team Leader at Hotel assigned</li>
+                                            <li>Friday, 27th June, 2025 - Coordination of Team Leaders by Chief Examiners at CoDE, UCC</li>
+                                            <li>Saturday, 28th June, 2025 - Departure of Team Leaders </li>
+                                            <li>Monday, 30th June, 2025 - Opening Ceremony and Coordination of Assistant Examiners by Team Leaders at the marking centres (9:00 am prompt).</li>
+                                            <li>30th June – 7th July, 2025 - Marking period</li>
                                         </ul>
                                         </p>
                                         <p>
-                                            <b>Your allowances for the number of scripts marked, meals, vetting, hospitality and
-                                                a
-                                                maximum
-                                                of three (3) round trips (a round trip is from Home-to-Marking Centre and Centre-back
-                                                to-Home)
-                                                will be
-                                                paid to your Bank Account after the marking period.</b> Kindly provide/confirm
+                                            <b>Your allowances for the number of scripts marked, meals, vetting, hospitality and a maximum of three (3) round trips (a round trip is from Home-to-Marking Centre-back to-Home) will be paid to your Bank Account after the marking period.
+
+                                            </b> Kindly provide/confirm
                                             your
                                             bank details
                                             and Ghana card number on the appropriate forms provided at the marking centre.
@@ -198,43 +192,39 @@ if (!empty($data['applicantdata'])) {
                                     <p>Tel.: 0332-096502 / 03321- 35203 / 36947<br>
                                         Fax: 03321- 33655 <br>
                                         E-mail: code.examsunit@ucc.edu.gh/cce@ucc.edu.gh </p>
-                                    <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.3/0013 </p>
+                                    <p><b>Our Ref.:</b> CoDE/Exams/M.2/Vol.3/0011 </p>
                                 </div>
                                 <div class="col-md-4 col-lg-4 col-xl-4 col-sm-4">
                                     <p>UNIVERSITY OF POST OFFICE <br>
                                         CAPE COAST</p>
-                                    <p>5th December, 2024</p>
+                                    <p>23rd June, 2025</p>
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-12 col-sm-12">
                                     <p>ASSISTANT EXAMINERS
                                         <br>
                                         Mr./Mrs./Ms. <?= $_SESSION['ename'] ?>
                                     </p>
-                                    <p><b>INVITATION TO CO-ORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END OF SECOND SEMESTER EXAMINATION
-                                            SCRIPTS (2023/2024)</b></p>
+                                    <p><b>INVITATION TO COORDINATION MEETING AND NON-RESIDENTIAL CONFERENCE MARKING OF END-OF-FIRST SEMESTER EXAMINATIONS SCRIPTS (2024/2025)</b></p>
                                     <p>
                                         You are kindly invited as an <b>Assistant Examiner</b> to participate in the non-residential
-                                        conference marking of End of Second Semester Examinations scripts (2023/2024) scheduled for
-                                        <b> 15th – 22nd December, 2024 </b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking Centre. Please, you
+                                        conference marking of End of First Semester Examinations scripts (2024/2025) scheduled for
+                                        <b> 30th June – 7th July, 2025 </b> at the <b><?= $_SESSION['marking_centre']; ?></b> Marking Centre. Please, you
                                         have been selected to mark <b><?= $_SESSION['course']; ?></b>.
                                     </p>
                                     <b>Please, note the following schedule:</b>
                                     <ul>
-                                        <li>Sunday, 15th December, 2024 - Arrival of Team Leaders and Assistant Examiners at the various marking centres (9:00 am promt). </li>
-                                        <li>Sunday, 15th December, 2024 - Opening Ceremony and Coordination of Assistant
-                                        Examiners at the marking centres. </li>
-                                        <li>15th – 22nd December, 2024 - Marking Period </li>
+                                        <li>Monday, 30th June, 2025 - Arrival of Assistant Examiners at the various marking centres (9:00 a.m. prompt) </li>
+                                        <li>Monday, 30th June, 2025 - Opening Ceremony and Coordination of Assistant Examiners at the marking centres. </li>
+                                        <li>30th June– 7th July, 2025 - Marking Period </li>
                                     </ul>
                                     </p>
                                     <p>
-                                        <b>Your allowances for the number of scripts marked, meals, hospitality and a maximum of
-                                            three (3) round trips (a round trip is from Home-to-Marking Centre-back to-Homc)
-                                            will be paid to your Bank Account after the marking period. </b>Kindly
+                                        <b>Your allowances for the number of scripts marked, meals, hospitality and a maximum of three (3) round trips (a round trip is from Home-to-Marking Centre-back to-Home) will be paid to your Bank Account after the marking period.</b> Kindly
                                         provide/confirm
                                         your bank details and Ghana card number on the appropriate forms provided at the
                                         marking centre.
                                         <br>
-                                        You are expected to report at the marking centre at <b>least thrce times</b> for vetting
+                                        You are expected to report at the marking centre at <b>least three times</b> for vetting
                                         and
                                         clearance by your Team Leaders, and submission of scripts. Please, ensure that
                                         attendance sheets at the marking centre are properly signed each time you report to
